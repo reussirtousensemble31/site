@@ -26,6 +26,11 @@
         font-family: @font-family-title;
         color: @lighten-text-color;
         font-size: 30px;
+
+        @media @tablet {
+          font-size: 24px;
+        }
+
         .second {
           color: darken(@primary-color, 20%);
         }
@@ -46,7 +51,7 @@
 }
 
 #imageTitle {
-    background:url('/images/welcome.jpg') no-repeat 50% 50%;
+    background:url('/images/welcome.jpg') no-repeat 30% 50%;
     background-size: cover;
     min-height: 600px;
     text-align: center;
@@ -55,5 +60,10 @@
         font-family: @font-family-picture;
         margin-top: 410px;
         font-size: 50px;
+
+        @media @tablet {
+          margin-top: 320px;
+            font-size: 40px;
+        }
     }
 }

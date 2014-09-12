@@ -40,6 +40,7 @@ keystone.init({
 	'user model': 'User',
 	'cookie secret': '1m$5SNm?$T!5-_,K">xcHM.XP1+u~qIkslUE;V/8^xaV$PSv,~A9[,J1"WEzBT9+',
 
+    'host': process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
     'port': process.env.OPENSHIFT_NODEJS_PORT || 3000,
 
     'mongo': process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://127.0.0.1:27017/'

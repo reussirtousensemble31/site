@@ -5,6 +5,7 @@ require('dotenv').load();
 // Require keystone
 var keystone = require('keystone'),
 	handlebars = require('express3-handlebars');
+//    process = require('process');
 	
 
 // Initialise Keystone with your project's configuration.
@@ -37,7 +38,11 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': '1m$5SNm?$T!5-_,K">xcHM.XP1+u~qIkslUE;V/8^xaV$PSv,~A9[,J1"WEzBT9+'
+	'cookie secret': '1m$5SNm?$T!5-_,K">xcHM.XP1+u~qIkslUE;V/8^xaV$PSv,~A9[,J1"WEzBT9+',
+
+    'port': 80,
+
+    'mongo': process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://127.0.0.1:27017/'
 
 });
 

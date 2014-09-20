@@ -15,8 +15,8 @@ var keystone = require('keystone'),
 
 keystone.init({
 
-	'name': 'Reussir tous ensemble 31',
-	'brand': 'Reussir tous ensemble 31',
+	'name': 'Reussir ensemble 31',
+	'brand': 'Reussir ensemble 31',
 
 	'less': 'public',
 	'static': 'public',

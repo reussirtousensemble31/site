@@ -20,21 +20,19 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="menu">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 text-center">
-                <div class="rounded-topic section-color-green">
-                    <i class="fa fa-child fa-5x"></i>
-                    <div class="title">Activités</div>
+            {{# each data.sections}}
+                <a href="#{{ancre}}">
+                <div class="col-sm-4 text-center">
+                    <div class="rounded-topic section-color-green">
+                        <i class="fa {{nomIcone}} fa-5x"></i>
+                        <div class="title">{{titre}}</div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4 text-center">
-                <div class="rounded-topic section-color-green">
-                    <i class="fa fa-question fa-5x"></i>
-                    <div class="title">Pour qui ?</div>
-                </div>
-            </div>
+                </a>
+            {{/each}}
             <div class="col-sm-4 text-center">
                 <div class="rounded-topic section-color-green">
                     <i class="fa fa-calendar fa-5x"></i>
@@ -42,32 +40,23 @@
                 </div>
             </div>
         </div>
-        <div class="row u-marg-t-50">
-            <div class="col-sm-4 text-center">
-                <div class="rounded-topic section-color-green">
-                    <i class="fa fa-link fa-5x"></i>
-                    <div class="title">Adhérer à l'association</div>
-                </div>
-            </div>
-            <div class="col-sm-4 text-center">
-                <div class="rounded-topic section-color-green">
-                    <i class="fa fa-ticket fa-5x"></i>
-                    <div class="title">Tarifs</div>
-                </div>
-            </div>
-            <div class="col-sm-4 text-center">
-                <div class="rounded-topic section-color-green">
-                    <i class="fa fa-users fa-5x"></i>
-                    <div class="title">L'équipe</div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
-{{>activites}}
-
-{{>equipe}}
+{{# each data.sections}}
+    <section id="{{ancre}}" class="{{#if alt}}section-alt{{else}}section{{/if}} ">
+        <div class="container">
+            <div class="row">
+                <h2>
+                    {{titre}}
+                </h2>
+                <div>
+                    {{{contenu}}}
+                </div>
+            </div>
+        </div>
+    </section>
+{{/each}}
 
 {{>map}}
 

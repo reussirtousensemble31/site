@@ -42,14 +42,12 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
 			to: admins,
 			from: {
 				name: 'Reussir tous ensemble 31',
-				email: 'contact@reussir-tous-ensemble-31.com'
+				email: 'reussirtousensemble31@gmail.com'
 			},
-			subject: 'New Enquiry for Reussir tous ensemble 31',
+			subject: 'Nouveau message reussir tous ensemble 31',
 			enquiry: enqiury
 		}, callback);
-		
 	});
-	
 };
 
 Enquiry.defaultSort = '-createdAt';

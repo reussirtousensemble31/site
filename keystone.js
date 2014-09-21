@@ -15,8 +15,8 @@ var keystone = require('keystone'),
 
 keystone.init({
 
-	'name': 'Reussir ensemble 31',
-	'brand': 'Reussir ensemble 31',
+	'name': 'Reussir tous ensemble 31',
+	'brand': 'Reussir tous ensemble 31',
 
 	'less': 'public',
 	'static': 'public',
@@ -43,8 +43,11 @@ keystone.init({
     'host': process.env.OPENSHIFT_NODEJS_IP || '192.168.3.10',
     'port': process.env.OPENSHIFT_NODEJS_PORT || 3000,
 
-    'mongo': process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://127.0.0.1:27017/'
+    'mongo': (process.env.OPENSHIFT_MONGODB_DB_URL) || 'mongodb://127.0.0.1:27017/' ,
 
+    "wysiwyg images": true
+//    'wysiwyg cloudinary image': true,
+//    'wisiwyg menubar': false
 });
 
 // Load your project's Models
@@ -105,10 +108,12 @@ keystone.set('email tests', require('./routes/emails'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'posts': ['posts', 'post-categories'],
-	'galleries': 'galleries',
-	'enquiries': 'enquiries',
-	'users': 'users'
+//	'posts': ['posts', 'post-categories'],
+//	'galleries': 'galleries',
+    'sections' : ['sections', 'images'],
+	'messages': 'enquiries',
+//	'sections': 'images',
+    'utilisateurs': 'users'
 });
 
 // Start Keystone to connect to your database and initialise the web server

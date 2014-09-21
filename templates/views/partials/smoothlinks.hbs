@@ -1,0 +1,27 @@
+<script>
+    $(function() {
+        $("#menu a[href^='#']").on('click', function(e) {
+
+            // prevent default anchor click behavior
+            e.preventDefault();
+            e.stopPropagation();
+
+            // store hash
+            var hash = this.hash;
+
+            // animate
+            $('html, body').animate({
+                scrollTop: Math.round($(this.hash).offset().top - $('.navbar').height())
+            }, 600, function(){
+                // when done, add hash to url
+                // (default click behaviour)
+                if (history.pushState) {
+                    history.pushState(null, null, hash);
+                }
+                else {
+                    window.location.hash = hash;
+                }
+            });
+        });
+    });
+</script>

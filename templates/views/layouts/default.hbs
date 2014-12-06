@@ -21,6 +21,7 @@
 
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
 
         <!-- Font Awesome -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -59,7 +60,8 @@
                     {{#if user}}
                         <li><a href="/keystone/signout">Se déconnecter</a></li>
                     {{else}}
-                        <li><a href="/keystone/signin">Se connecter</a></li>
+                        <li><a href="javascript:void(0)" data-target="#dialogSignin" data-toggle="modal">Se connecter</a></li>
+                        <li><a href="javascript:void(0)" data-target="#dialogJoin" data-toggle="modal">S'inscrire</a></li>
                     {{/if}}
                 </ul>
             </div>

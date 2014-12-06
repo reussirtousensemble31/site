@@ -1,3 +1,7 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: @font-family-title;
+}
+
 #header {
 	margin-top: 30px;
 }
@@ -21,7 +25,7 @@
 
 .navbar {
     background-color: @primary-color;
-    border-bottom: 0;
+    border-bottom: 1px solid #666;
     .navbar-brand {
         font-family: @font-family-title;
         color: @lighten-text-color;
@@ -143,5 +147,50 @@ section {
     width: 100%;
     border-bottom: 1px solid white;
   }
+}
 
+.img-thumbnail {
+  margin-right: 20px;
+}
+
+.planning {
+  .table {
+    .u-marg-t-30;
+
+    td {
+      vertical-align: middle;
+    }
+  }
+}
+
+.modal-header {
+  background-color: @brand-primary;
+  color: @lighten-text-color;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#dialogJoin, #dialogSignin {
+
+  .modal-body {
+    padding: 2em 3em;
+  }
+
+  input {
+    &:first-child {
+      border-top-left-radius:5px;
+      border-top-right-radius:5px;
+      border-top:1px solid #ccc;
+    }
+
+    &:last-child {
+      border-bottom-left-radius:5px;
+      border-bottom-right-radius:5px;
+    }
+
+    padding: 12px;
+    height: auto;
+    border-radius: 0;
+    border-top:0;
+  }
 }

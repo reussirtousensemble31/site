@@ -8,7 +8,13 @@
 </div>
 <script type="text/javascript">
 function init_map() {
-    var myOptions = {zoom: 15, center: new google.maps.LatLng(43.6363709, 1.4358239000000594), mapTypeId: google.maps.MapTypeId.ROADMAP};
+    var myOptions = {
+        zoom: 15,
+        center: new google.maps.LatLng(43.6363709, 1.4358239000000594),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        draggable: false,
+        scrollwheel: false
+    };
     map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
     marker = new google.maps.Marker({map: map, position: new google.maps.LatLng(43.6363709, 1.4358239000000594)});
     infowindow = new google.maps.InfoWindow({content: "<b>Reussir ensemble</b><br/>7 Rue Marc Miguet Toulouse" });

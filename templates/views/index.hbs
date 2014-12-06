@@ -20,7 +20,7 @@
     </div>
 </section>
 
-<section class="section" id="menu">
+<section class="section u-pad-b-0" id="menu">
     <div class="container">
         <div class="row">
             {{# each data.sections}}
@@ -34,10 +34,12 @@
                 </a>
             {{/each}}
             <div class="col-sm-4 text-center">
+                <a href="#planning">
                 <div class="rounded-topic section-color-green">
                     <i class="fa fa-calendar fa-5x"></i>
                     <div class="title">Planning</div>
                 </div>
+                </a>
             </div>
         </div>
     </div>
@@ -47,12 +49,17 @@
     <section id="{{ancre}}" class="{{#if alt}}section-alt{{else}}section{{/if}} ">
         <div class="container">
             <div class="row">
-                <h2>
-                    {{titre}}
-                </h2>
-                <div>
-                    {{{contenu}}}
+                <div class="col-xs-1">
+                    <i class="fa {{nomIcone}} fa-5x" style="float:left"></i>
                 </div>
+                <div class="col-xs-11">
+                    <h2>
+                        {{titre}}
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                {{{contenu}}}
             </div>
         </div>
     </section>
@@ -60,4 +67,10 @@
 
 {{>map}}
 
+{{>planning}}
+
 {{>contact}}
+
+{{>join}}
+
+{{>signin}}

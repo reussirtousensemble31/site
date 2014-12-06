@@ -45,9 +45,10 @@ keystone.init({
 
     'mongo': (process.env.OPENSHIFT_MONGODB_DB_URL) || 'mongodb://127.0.0.1:27017/' ,
 
+    'signin redirect' : '/',
+    'signout redirect': '/',
+
     "wysiwyg images": true
-//    'wysiwyg cloudinary image': true,
-//    'wisiwyg menubar': false
 });
 
 // Load your project's Models

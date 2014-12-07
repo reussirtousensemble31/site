@@ -8,8 +8,9 @@ exports = module.exports = function(req, res, next) {
     }
 
     if (!req.body.email || !req.body.password) {
-        req.flash('error', 'Please enter your username and password.');
-        return next();
+//        req.flash('error', 'Please enter your username and password.');
+        res.send({success: false, error: 'Veuillez saisir votre email et votre mot de passe.'});
+        return;
     }
 
     var onSuccess = function() {
@@ -17,8 +18,8 @@ exports = module.exports = function(req, res, next) {
     };
 
     var onFail = function() {
-        req.flash('error', 'Your username or password were incorrect, please try again.');
-        return next();
+        res.send({success: false, error: 'Votre email ou votre mot de passe sont incorrects, veuillez réessayer.'});
+        return;
     };
 
     keystone.session.signin({ email: req.body.email, password: req.body.password }, req, res, onSuccess, onFail);

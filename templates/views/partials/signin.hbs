@@ -11,6 +11,7 @@
                     <input type="email" class="form-control" name="email" placeholder="email">
                     <input type="password" class="form-control" name="password" placeholder="mot de passe">
                 </form>
+                <p class="error" style="display: none;"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default">Se connecter</button>
@@ -21,13 +22,18 @@
         $('#dialogSignin button').click(function() {
             var form = $('#dialogSignin form');
 
-
             $.ajax({
                 url: form.attr('action'),
                 type: 'POST',
                 data: form.serialize(),
-                success: function() {
-                    location.reload();
+                success: function(r) {
+                    if (r.success) {
+                        location.reload();
+                    }
+                    else {
+                        $('#dialogSignin .error').text(r.error);
+                        $('#dialogSignin .error').show();
+                    }
                 }
             });
         });

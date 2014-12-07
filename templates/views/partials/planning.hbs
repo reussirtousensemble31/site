@@ -1,31 +1,66 @@
 <div class="planning" id="planning">
     <div class="container u-pad-t-50 u-pad-b-50">
         <div class="row">
-            <div class="col-xs-1"><i class="fa fa-calendar fa-5x"></i></div>
-            <div class="col-sm-11">
-                <h2>Planning</h2>
+            <div style="display:flex;">
+                <i class="fa fa-calendar fa-5x"></i>
+                <h2 style="flex:1; margin-left:20px;margin-right:20px;">Planning</h2>
             </div>
         </div>
         <div class="row">
+            <p class="u-marg-t-30"><strong>Vos prochains rendez-vous</strong></p>
             <div class="table-responsive">
-                <table class="table">
-                    <tr>
-                        <td>Lundi 16/12</td>
-                        <td>3 place(s) libre(s)</td>
-                        <td><button type="button" class="btn btn-default">S'inscrire</button></td>
-                    </tr>
-                    <tr>
-                        <td>Jeudi 21/12</td>
-                        <td>0 place(s) libre(s)</td>
-                        <td><button type="button" class="btn btn-default">S'inscrire</button></td>
-                    </tr>
-                    <tr>
-                        <td>Dimanche 01/02</td>
-                        <td>2 place(s) libre(s)</td>
-                        <td><button type="button" class="btn btn-default">S'inscrire</button></td>
-                    </tr>
+                <table class="table bold">
+                    {{# each data.cours}}
+                        <tr>
+                            <td>{{date date format='dddd Do MMMM YYYY à HH:mm'}}</td>
+                            <td>
+                                {{#if placesMaximum}}
+                                    {{#if placesRestantes}}
+                                        <span style="color: green;">{{placesRestantes}} place(s) libre(s)</span>
+                                    {{else}}
+                                        <span style="color: red;">plus de place</span>
+                                    {{/if}}
+                                {{else}}
+                                    <span style="color: green;">libre</span>
+                                {{/if}}
+                            </td>
+                            {{#if ../user}}
+                            <td>
+                                <a href="javascript:void(0)" type="button" class="btn btn-default" role="button" data-toggle="tooltip" data-html="true" title="{{listeParticipants participants}}">Participants</a>
+                            </td>
+                            <td>
+                                {{#if notJoined}}
+                                    <button type="button" class="btn btn-default" data-id="{{id}}" data-action="join">S'inscrire</button>
+                                {{else}}
+                                    <button type="button" class="btn btn-default" data-id="{{id}}" data-action="leave">Se désincrire</button>
+                                {{/if}}
+                            </td>
+                            {{/if}}
+                        </tr>
+                    {{/each}}
                 </table>
             </div>
+            <p class="u-marg-t-30">A très bientôt !<br/>Toute l'équipe de Réussir tous ensemble 31</p>
         </div>
     </div>
+    <script type="text/javascript">
+        $('.planning button').click(function(e) {
+            console.log(e);
+
+            $.ajax({
+                url: '/',
+                type: 'POST',
+                data: {
+                    action: e.target.getAttribute('data-action'),
+                    id: e.target.getAttribute('data-id')
+                },
+                success: function() {
+                    location.reload();
+                }
+            });
+        });
+        $(function () {
+            $('.planning [data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </div>

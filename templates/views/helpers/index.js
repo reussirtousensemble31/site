@@ -75,7 +75,7 @@ module.exports = function() {
 		if (timeago) {
 			date = moment(context).fromNow();
 		} else {
-			date = moment(context).format(f);
+			date = moment(context).locale("fr").format(f);
 		}
 		return date;
 	};
@@ -152,8 +152,8 @@ module.exports = function() {
 		}
 		return new hbs.SafeString(output);
 	};
-	
-	// block rendering for keystone admin js
+
+    // block rendering for keystone admin js
 	_helpers.isAdminEditorJS = function(user, options) {
 		var output = '';
 		if (typeof(user) !== 'undefined' && user.isAdmin) {
@@ -347,6 +347,16 @@ module.exports = function() {
 		}
 		return new hbs.SafeString(output);
 	};
+
+    _helpers.listeParticipants = function(participants) {
+        var output = '';
+
+        participants.forEach(function(user) {
+            output += '<div>' + user.name.first + ' ' + user.name.last + '</div>';
+        });
+
+        return new hbs.SafeString(output);
+    };
 	
 	return _helpers;
 };

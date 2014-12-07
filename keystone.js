@@ -112,6 +112,7 @@ keystone.set('nav', {
 //	'posts': ['posts', 'post-categories'],
 //	'galleries': 'galleries',
     'sections' : ['sections', 'images'],
+    'cours' : 'cours',
 	'messages': 'enquiries',
 //	'sections': 'images',
     'utilisateurs': 'users'

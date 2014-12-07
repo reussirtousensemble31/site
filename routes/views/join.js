@@ -12,7 +12,7 @@ exports = module.exports = function(req, res, next) {
                 return cb(true);
             }
 
-            return cb();
+        return cb();
 
         },
 
